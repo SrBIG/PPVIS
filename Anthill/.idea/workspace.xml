@@ -37,8 +37,11 @@
       <file leaf-file-name="Anthill.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/Anthill.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="36">
-              <caret line="2" column="21" selection-start-line="2" selection-end-line="2" selection-end-column="21" />
+            <state relative-caret-position="288">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,9 +87,9 @@
         <option value="$PROJECT_DIR$/src/Model/Characteristics.java" />
         <option value="$PROJECT_DIR$/src/Model/Ant.java" />
         <option value="$PROJECT_DIR$/src/View/ViewAnthill.java" />
-        <option value="$PROJECT_DIR$/src/View/Anthill.java" />
         <option value="$PROJECT_DIR$/src/View/AnthillLvl.java" />
         <option value="$PROJECT_DIR$/src/View/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/View/Anthill.java" />
       </list>
     </option>
   </component>
@@ -238,12 +241,12 @@
       <workItem from="1536386850992" duration="5334000" />
       <workItem from="1536570042680" duration="1414000" />
       <workItem from="1536650608338" duration="4523000" />
-      <workItem from="1536776292615" duration="1122000" />
+      <workItem from="1536776292615" duration="2005000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16825000" />
+    <option name="totallyTimeSpent" value="17708000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -321,6 +324,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
           <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -370,6 +376,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1170">
           <caret line="65" column="27" selection-start-line="65" selection-start-column="27" selection-end-line="65" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -398,6 +407,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1368">
           <caret line="76" column="41" lean-forward="true" selection-start-line="76" selection-start-column="41" selection-end-line="76" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -480,8 +492,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Anthill.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36">
-          <caret line="2" column="21" selection-start-line="2" selection-end-line="2" selection-end-column="21" />
+        <state relative-caret-position="288">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
