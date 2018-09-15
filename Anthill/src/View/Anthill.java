@@ -10,7 +10,7 @@ public class Anthill extends JComponent{
     AnthillLvl anthillLvl = new AnthillLvl();
 
     public Anthill() {
-        setSize(800, 600);
+        setSize(400, 600);
         //setSize(getWidth(),getHeight());
         add(anthillLvl);
     }

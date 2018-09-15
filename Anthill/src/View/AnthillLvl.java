@@ -44,7 +44,7 @@ public class AnthillLvl extends JComponent{
         g2d.setStroke(new BasicStroke(1f));
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2d.draw(circle(width/2, height/2, 100));
+        //g2d.draw(circle(width/2, height/2, 100));
         double x = width / 2;
         double y = height / 2;
         double r = 5;
@@ -53,7 +53,7 @@ public class AnthillLvl extends JComponent{
         y += 100 * Math.sin(an);
         g2d.fill(circle(x, y, r));
 
-        g2d.draw(circle(width/2, height/2, 100));
+        //g2d.draw(circle(width/2, height/2, 100));
         double x1 = width / 2;
         double y1= height / 2;
         double r1 = 5;
