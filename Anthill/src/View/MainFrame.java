@@ -25,6 +25,7 @@ public class MainFrame extends JComponent{
     public MainFrame(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
+        frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
 
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));

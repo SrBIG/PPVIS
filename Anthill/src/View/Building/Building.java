@@ -26,6 +26,7 @@ public class Building extends JPanel{
 
     protected void run(){
         JDialog warningDialog = new JDialog();
+        warningDialog.setLocationRelativeTo(null);
         warningDialog.add(new JTextField("Sorry, this function is not yet implemented"));
         warningDialog.setVisible(true);
     }

@@ -5,7 +5,7 @@ import java.awt.*;
 public class BuildingQueensRoom extends Building{
     public BuildingQueensRoom(){
         super();
-        rename("Покои Королевы");
+        rename("<html>Покои<br>Королевы</html>");
         actionZone.setBackground(new Color(211, 239, 28));
     }
 

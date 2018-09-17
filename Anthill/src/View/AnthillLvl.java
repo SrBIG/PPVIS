@@ -5,11 +5,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class AnthillLvl extends JComponent{
     int frameHeight = 560;
     int frameWidth = 400;
+    BufferedImage buffer;
+
     private int numOfAnts;
     private int maxAnts;
     private int radius;
@@ -18,6 +21,7 @@ public class AnthillLvl extends JComponent{
 
     public AnthillLvl() {
         setSize(frameWidth, frameHeight);
+        setDoubleBuffered(true);
         //this.radius = radius;
         //this.maxAnts = maxAnts;
         //createAngles();
@@ -27,19 +31,21 @@ public class AnthillLvl extends JComponent{
             public void actionPerformed(ActionEvent e) {
                 angle += 0.001;
                 if (angle > 6.28) angle = 0;
+                rebuildBuffer();
                 repaint();
             }
         });
         timer.start();
     }
 
-    protected void paintComponent(Graphics g) {
+    private void rebuildBuffer(){
+        int w = getWidth();
+        int h = getHeight();
+        buffer = new BufferedImage(w, h, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = buffer.createGraphics();
         int width = frameWidth;
         int height = frameHeight;
-        g.setColor(Color.white);
-        g.fillRect(0, 0, width, height);
-        g.setColor(Color.black);
-        Graphics2D g2d = (Graphics2D) g;
+        g2d.setColor(Color.black);
         g2d.setStroke(new BasicStroke(1f));
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
@@ -60,6 +66,14 @@ public class AnthillLvl extends JComponent{
         x1 += 100 * Math.cos(an1);
         y1 += 100 * Math.sin(an1);
         g2d.fill(circle(x1, y1, r1));
+    }
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (buffer == null) {
+            rebuildBuffer();
+        }
+        g.drawImage(buffer, 0, 0, this);
     }
 
     private Shape circle(double x, double y, double r) {
