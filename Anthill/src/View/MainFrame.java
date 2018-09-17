@@ -1,5 +1,6 @@
 package View;
 
+import Controller.Controller;
 import View.Building.*;
 
 import javax.swing.*;
@@ -7,14 +8,15 @@ import java.awt.*;
 
 public class MainFrame extends JComponent{
     JFrame frame = new JFrame("Anthill");
+    Controller controller;
 
-    Anthill anthill = new Anthill();
-    BuildingTownHall townHall = new BuildingTownHall();
-    BuildingFoodStorage foodStorage = new BuildingFoodStorage();
-    BuildingQueensRoom queensRoom = new BuildingQueensRoom();
-    BuildingCowshed cowshed = new BuildingCowshed();
-    BuildingChurch church = new BuildingChurch();
-    BuildingScienceCenter scienceCenter = new BuildingScienceCenter();
+    Anthill anthill;
+    BuildingTownHall townHall;
+    BuildingFoodStorage foodStorage;
+    BuildingQueensRoom queensRoom;
+    BuildingCowshed cowshed;
+    BuildingChurch church;
+    BuildingScienceCenter scienceCenter;
 
     JPanel left = new JPanel();
     JPanel center = new JPanel();
@@ -23,10 +25,24 @@ public class MainFrame extends JComponent{
     JLabel numberAnts = new JLabel("0/300");
 
     public MainFrame(){
+        controller = new Controller();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLocationRelativeTo(null);
         frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.X_AXIS));
+        createStructure();
+        frame.setVisible(true);
+        frame.setResizable(false);
+    }
+
+    private void createStructure(){
+        anthill = new Anthill();
+        townHall = new BuildingTownHall(controller);
+        foodStorage = new BuildingFoodStorage();
+        queensRoom = new BuildingQueensRoom();
+        cowshed = new BuildingCowshed();
+        church = new BuildingChurch();
+        scienceCenter = new BuildingScienceCenter();
 
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
         left.setPreferredSize(new Dimension(200, 600));
@@ -48,8 +64,6 @@ public class MainFrame extends JComponent{
         frame.add(left);
         frame.add(center);
         frame.add(right);
-        frame.setVisible(true);
-        frame.setResizable(false);
     }
 
     public static void main(String[] args) {

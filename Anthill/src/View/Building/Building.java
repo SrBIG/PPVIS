@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Building extends JPanel{
-    JButton actionZone = new JButton("Default");
+    private JButton actionZone = new JButton("Default");
 
     public Building(){
         setLayout(new GridBagLayout());
@@ -26,6 +26,7 @@ public class Building extends JPanel{
 
     protected void run(){
         JDialog warningDialog = new JDialog();
+        warningDialog.setSize(250,100);
         warningDialog.setLocationRelativeTo(null);
         warningDialog.add(new JTextField("Sorry, this function is not yet implemented"));
         warningDialog.setVisible(true);
@@ -33,5 +34,9 @@ public class Building extends JPanel{
 
     protected void rename(String newName){
         actionZone.setText(newName);
+    }
+
+    protected void setColor(int r, int g, int b){
+        actionZone.setBackground(new Color(r,g,b));
     }
 }

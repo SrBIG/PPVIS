@@ -7,7 +7,7 @@ public class BuildingCowshed extends Building{
     public BuildingCowshed(){
         super();
         rename("Коровник");
-        actionZone.setBackground(new Color(0, 206, 10));
+        setColor(0, 206, 10);
     }
 
     @Override

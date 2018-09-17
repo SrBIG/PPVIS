@@ -7,7 +7,7 @@ public class BuildingScienceCenter extends Building{
     public BuildingScienceCenter(){
         super();
         rename("Научный центр");
-        actionZone.setBackground(new Color(124, 12, 113));
+        setColor(124, 12, 113);
     }
 
     @Override

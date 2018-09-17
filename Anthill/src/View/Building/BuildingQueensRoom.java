@@ -5,8 +5,8 @@ import java.awt.*;
 public class BuildingQueensRoom extends Building{
     public BuildingQueensRoom(){
         super();
-        rename("<html>Покои<br>Королевы</html>");
-        actionZone.setBackground(new Color(211, 239, 28));
+        rename("<html>Королева</html>");
+        setColor(211, 239, 28);
     }
 
     @Override

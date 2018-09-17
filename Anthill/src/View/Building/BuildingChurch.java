@@ -6,7 +6,7 @@ public class BuildingChurch extends Building{
     public BuildingChurch(){
         super();
         rename("Капище");
-        actionZone.setBackground(new Color(102, 108, 232));
+        setColor(102, 108, 232);
     }
 
     @Override

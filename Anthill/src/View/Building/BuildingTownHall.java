@@ -1,17 +1,20 @@
 package View.Building;
 
-import java.awt.*;
+import Controller.Controller;
+import View.BuildingInside.TownHall;
 
 public class BuildingTownHall extends Building {
+    private Controller controller;
 
-    public BuildingTownHall(){
+    public BuildingTownHall(Controller controller){
         super();
+        this.controller = controller;
         rename("Ратуша");
-        actionZone.setBackground(new Color(244, 170, 66));
+        setColor(244, 170, 66);
     }
 
     @Override
     protected void run() {
-        super.run();
+        new TownHall(controller);
     }
 }
