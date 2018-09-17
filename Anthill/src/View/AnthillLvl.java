@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class AnthillLvl extends JComponent{
-    int frameHeight = 560;
+    int frameHeight = 580;
     int frameWidth = 400;
     BufferedImage buffer;
 

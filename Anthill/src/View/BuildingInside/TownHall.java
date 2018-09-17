@@ -9,16 +9,21 @@ import java.awt.event.ActionListener;
 
 public class TownHall extends JDialog {
     Controller controller;
+    JButton exit = new JButton("Выйти");
     JPanel info = new JPanel();
 
     public TownHall(Controller controller) {
         this.controller = controller;
         setName("Ратуша");
+        getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
 
         info.add(new JLabel("Муравьёв-"+controller.getNumAnts()));
         add(info);
 
         add(new Raid());
+
+        exit.addActionListener(new ExitListener());
+        add(exit);
 
         setModal(true);
         setSize(300, 400);
@@ -26,7 +31,6 @@ public class TownHall extends JDialog {
         setResizable(false);
         setVisible(true);
     }
-
 
     class Raid extends JPanel{
         JTextField antsForRaid = new JTextField();
@@ -49,6 +53,13 @@ public class TownHall extends JDialog {
             public void actionPerformed(ActionEvent actionEvent) {
 
             }
+        }
+    }
+
+    class ExitListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            setVisible(false);
         }
     }
 }

@@ -1,16 +1,21 @@
 package View.Building;
 
+import Controller.Controller;
+
 import java.awt.*;
 
 public class BuildingQueensRoom extends Building{
-    public BuildingQueensRoom(){
+    private Controller controller;
+
+    public BuildingQueensRoom(Controller controller){
         super();
+        this.controller = controller;
         rename("<html>Королева</html>");
         setColor(211, 239, 28);
     }
 
     @Override
     protected void run() {
-        super.run();
+        controller.addAnt();
     }
 }
