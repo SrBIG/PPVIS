@@ -6,6 +6,14 @@ public class Ant {
     private int atack;
     private int eat;
 
+    public Ant(){
+        maxHealth = 3;
+        atack = 1;
+        eat = 3;
+
+        health = maxHealth;
+    }
+
     public Ant(Characteristics characteristics){
         maxHealth = characteristics.getAntMaxHealth();
         atack = characteristics.getAntAtack();

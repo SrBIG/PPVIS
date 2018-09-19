@@ -41,6 +41,7 @@ public class TownHall extends JDialog {
             setPreferredSize(new Dimension(300, 100));
             //setMaximumSize(new Dimension(300, 100));
             add(new JLabel("Введите кол-во муравьёв для рейда:"));
+            antsForRaid.setMaximumSize(new Dimension(10,10));
             add(antsForRaid);
 
             sendToRaid.addActionListener(new RaidListener());
