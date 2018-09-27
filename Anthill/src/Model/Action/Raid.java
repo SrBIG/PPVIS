@@ -13,12 +13,22 @@ public class Raid {
     private int foundAphids = 0;
     private int foundFoods = 0;
 
+    private int status = 0;
+    // 0 - рейда не существует
+    // 1 - рейд запущен
+    // 2 - все мертвы
+    // 3 - рейд возвращается
+
     private int time = 0;
     private int oneTick = 5;
     private Timer timer;
 
     public Raid(ArrayList<Ant> ants){
         this.antsInRaid = ants;
+    }
+
+    public void beginRaid(){
+        status = 1;
         timer = new Timer(oneTick*1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -96,11 +106,20 @@ public class Raid {
         return time;
     }
 
+    public int getStatus(){
+        return status;
+    }
+
     public void comeBack(){
 
     }
 
     public void end(){
+        if(antsInRaid.isEmpty()){
+            status = 2;
+        } else{
+            status = 3;
+        }
         timer.stop();
     }
 

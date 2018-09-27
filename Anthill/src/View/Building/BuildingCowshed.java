@@ -1,7 +1,5 @@
 package View.Building;
 
-import java.awt.*;
-
 public class BuildingCowshed extends Building{
 
     public BuildingCowshed(){

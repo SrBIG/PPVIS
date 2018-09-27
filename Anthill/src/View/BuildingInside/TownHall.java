@@ -8,19 +8,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TownHall extends JDialog {
-    Controller controller;
-    JButton exit = new JButton("Выйти");
-    JPanel info = new JPanel();
+    private Controller controller;
+    private JLabel viewNumAnts = new JLabel();
+    private JButton exit = new JButton("Выйти");
+    private JPanel info = new JPanel();
 
     public TownHall(Controller controller) {
         this.controller = controller;
         setName("Ратуша");
         getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));
+        update();
 
-        info.add(new JLabel("Муравьёв-"+controller.getNumAnts()));
+        info.add(viewNumAnts);
         add(info);
+        info.setMaximumSize(new Dimension(300, 20));
 
-        add(new Raid());
+        add(new ViewRaid());
 
         exit.addActionListener(new ExitListener());
         add(exit);
@@ -32,27 +35,42 @@ public class TownHall extends JDialog {
         setVisible(true);
     }
 
-    class Raid extends JPanel{
+    public void update(){
+        viewNumAnts.setText("Муравьёв: " + controller.getNumAnts());
+    }
+
+    class ViewRaid extends JPanel{
         JTextField antsForRaid = new JTextField();
         JButton sendToRaid = new JButton("Отправить в рейд");
 
-        public Raid(){
-            setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        public ViewRaid(){
             setPreferredSize(new Dimension(300, 100));
-            //setMaximumSize(new Dimension(300, 100));
-            add(new JLabel("Введите кол-во муравьёв для рейда:"));
-            antsForRaid.setMaximumSize(new Dimension(10,10));
-            add(antsForRaid);
-
-            sendToRaid.addActionListener(new RaidListener());
-            add(sendToRaid);
+            if(controller.getRaid() != null){
+                controller.getRaid().getStatus();
+                add(new JLabel("Рэйд уже идет!"));
+                add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
+            } else {
+                add(new JLabel("Введите кол-во муравьёв для рейда:"));
+                antsForRaid.setPreferredSize(new Dimension(300, 20));
+                add(antsForRaid);
+                sendToRaid.addActionListener(new RaidListener());
+                add(sendToRaid);
+            }
         }
 
         class RaidListener implements ActionListener{
 
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                int numAntsForRaid = Integer.parseInt(antsForRaid.getText());
 
+                if(controller.getNumAnts() < numAntsForRaid){
+                    JOptionPane.showMessageDialog(null, "У вас недостаточно юнитов!");
+                    return;
+                }
+
+                controller.beginRaid(controller.getSubAnts(numAntsForRaid));
+                JOptionPane.showMessageDialog(null, "Рэйд начат! Количество юнитов в рейде: " + numAntsForRaid);
             }
         }
     }
