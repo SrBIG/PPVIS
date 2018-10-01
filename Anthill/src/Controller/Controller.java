@@ -4,9 +4,7 @@ import Model.Action.Raid;
 import Model.Ant;
 import Model.Characteristics;
 import View.MainFrame;
-import sun.awt.windows.ThemeReader;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class Controller {
@@ -15,6 +13,10 @@ public class Controller {
     private Characteristics characteristics;
     private MainFrame frame;
     private Raid raid;
+    Thread threadRaid;
+
+    private int foods = 0;
+    private int aphids = 0;
 
 
     public Controller(MainFrame frame){
@@ -22,12 +24,19 @@ public class Controller {
         characteristics = new Characteristics();
     }
 
+    public Raid getRaid(){
+        if(raid != null){
+            return raid;
+        } else return null;
+    }
+
     public void beginRaid(ArrayList<Ant> antsInRaid) {
         for(Ant ant : antsInRaid){
             ants.remove(ant);
         }
+        frame.update();
         raid = new Raid(antsInRaid);
-        Thread threadRaid = new Thread(new Runnable() {
+        threadRaid = new Thread(new Runnable() {
             @Override
             public void run() {
                 raid.beginRaid();
@@ -36,10 +45,29 @@ public class Controller {
         threadRaid.start();
     }
 
-    public Raid getRaid(){
-        if(raid != null){
-            return raid;
-        } else return null;
+    public void allDeadInRaid(){
+        raid = null;
+    }
+
+    public void comebackRaid(){
+        if(raid == null) return;
+        Thread threadComeback = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                raid.comeback();
+            }
+        });
+        threadComeback.start();
+    }
+
+    public void collectResurs(){
+        for(Ant ant : raid.getAnts()){
+            ants.add(ant);
+        }
+        foods = raid.getFoundFoods();
+        aphids = raid.getFoundAphids();
+        raid = null;
+        frame.update();
     }
 
     public ArrayList<Ant> getAnts(){
@@ -67,5 +95,6 @@ public class Controller {
 
     public void setMaxAnts(int maxAnts) {
         this.maxAnts = maxAnts;
+        frame.update();
     }
 }

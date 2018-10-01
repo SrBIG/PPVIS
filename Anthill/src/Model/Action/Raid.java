@@ -18,6 +18,7 @@ public class Raid {
     // 1 - рейд запущен
     // 2 - все мертвы
     // 3 - рейд возвращается
+    // 4 - рейд вернулся
 
     private int time = 0;
     private int oneTick = 5;
@@ -110,8 +111,18 @@ public class Raid {
         return status;
     }
 
-    public void comeBack(){
+    public void comeback(){
+        status = 3;
+        time /= 2;
+        timer = new Timer(oneTick*1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                time -= oneTick;
+                if(time <= 0) endComeback();
+            }
+        });
 
+        timer.start();
     }
 
     public void end(){
@@ -123,4 +134,20 @@ public class Raid {
         timer.stop();
     }
 
+    private void endComeback(){
+        timer.stop();
+        status = 4;
+    }
+
+    public ArrayList<Ant> getAnts(){
+        return antsInRaid;
+    }
+
+    public int getFoundFoods() {
+        return foundFoods;
+    }
+
+    public int getFoundAphids() {
+        return foundAphids;
+    }
 }

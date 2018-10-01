@@ -13,6 +13,13 @@ public class TownHall extends JDialog {
     private JButton exit = new JButton("Выйти");
     private JPanel info = new JPanel();
 
+    private JPanel viewRaid = new JPanel();
+    JTextField antsForRaid = new JTextField();
+    JButton sendToRaid = new JButton("Отправить в рейд");
+    JButton comeback = new JButton("Вернуть рейд");
+    JButton endIfDead = new JButton("Завершить");
+    JButton collectLoot = new JButton("Собрать добычу");
+
     public TownHall(Controller controller) {
         this.controller = controller;
         setName("Ратуша");
@@ -23,7 +30,9 @@ public class TownHall extends JDialog {
         add(info);
         info.setMaximumSize(new Dimension(300, 20));
 
-        add(new ViewRaid());
+        viewRaid.setPreferredSize(new Dimension(300, 100));
+        viewRaidWithStatus();
+        add(viewRaid);
 
         exit.addActionListener(new ExitListener());
         add(exit);
@@ -35,43 +44,91 @@ public class TownHall extends JDialog {
         setVisible(true);
     }
 
-    public void update(){
+    private void viewRaidWithStatus(){
+        viewRaid.removeAll();
+
+        if(controller.getRaid() == null || controller.getRaid().getStatus() == 0){  // 0 - рейда не существует
+            viewRaid.add(new JLabel("Введите кол-во муравьёв для рейда:"));
+            antsForRaid.setPreferredSize(new Dimension(300, 20));
+            viewRaid.add(antsForRaid);
+            sendToRaid.addActionListener(new RaidListener());
+            viewRaid.add(sendToRaid);
+            return;
+        } else if (controller.getRaid().getStatus() == 1){  // 1 - рейд идёт
+            viewRaid.add(new JLabel("Рэйд уже идет!"));
+            viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
+            comeback.addActionListener(new ComebackListener());
+            viewRaid.add(comeback);
+            return;
+        } else if (controller.getRaid().getStatus() == 2){  // 2 - все мертвы
+            viewRaid.add(new JLabel("Все мертвы...!"));
+            viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
+            endIfDead.addActionListener(new AllDeadListener());
+            viewRaid.add(endIfDead);
+            return;
+        } else if (controller.getRaid().getStatus() == 3){  // 3 - рейд возвращается
+            viewRaid.add(new JLabel("Рэйд возвращается!"));
+            viewRaid.add(new JLabel("Время до возвращения: " + controller.getRaid().getTime() + "c"));
+            return;
+        } else if (controller.getRaid().getStatus() == 4){  // 4 - рейд вернулся
+            viewRaid.add(new JLabel("Рейд вернулся"));
+            collectLoot.addActionListener(new CollectListener());
+            viewRaid.add(collectLoot);
+            return;
+        }
+    }
+
+    private void update(){
         viewNumAnts.setText("Муравьёв: " + controller.getNumAnts());
     }
 
-    class ViewRaid extends JPanel{
-        JTextField antsForRaid = new JTextField();
-        JButton sendToRaid = new JButton("Отправить в рейд");
+    class RaidListener implements ActionListener {
 
-        public ViewRaid(){
-            setPreferredSize(new Dimension(300, 100));
-            if(controller.getRaid() != null){
-                controller.getRaid().getStatus();
-                add(new JLabel("Рэйд уже идет!"));
-                add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
-            } else {
-                add(new JLabel("Введите кол-во муравьёв для рейда:"));
-                antsForRaid.setPreferredSize(new Dimension(300, 20));
-                add(antsForRaid);
-                sendToRaid.addActionListener(new RaidListener());
-                add(sendToRaid);
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            int numAntsForRaid = Integer.parseInt(antsForRaid.getText());
+
+            if (controller.getNumAnts() < numAntsForRaid) {
+                JOptionPane.showMessageDialog(null, "У вас недостаточно юнитов!");
+                return;
             }
+
+            controller.beginRaid(controller.getSubAnts(numAntsForRaid));
+            viewRaidWithStatus();
+            update();
+            JOptionPane.showMessageDialog(null, "Рэйд начат! Количество юнитов в рейде: " + numAntsForRaid);
         }
+    }
 
-        class RaidListener implements ActionListener{
+    class ComebackListener implements ActionListener{
 
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {
-                int numAntsForRaid = Integer.parseInt(antsForRaid.getText());
-
-                if(controller.getNumAnts() < numAntsForRaid){
-                    JOptionPane.showMessageDialog(null, "У вас недостаточно юнитов!");
-                    return;
-                }
-
-                controller.beginRaid(controller.getSubAnts(numAntsForRaid));
-                JOptionPane.showMessageDialog(null, "Рэйд начат! Количество юнитов в рейде: " + numAntsForRaid);
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            if(controller.getRaid().getStatus() == 2) {
+                JOptionPane.showMessageDialog(null, "Рэйд мёртв...");
+                setVisible(false);
             }
+            controller.getRaid().end();
+            controller.comebackRaid();
+            viewRaidWithStatus();
+            update();
+        }
+    }
+
+    class AllDeadListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            controller.allDeadInRaid();
+            viewRaidWithStatus();
+        }
+    }
+
+    class CollectListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent actionEvent) {
+            controller.collectResurs();
+            viewRaidWithStatus();
+            update();
         }
     }
 
