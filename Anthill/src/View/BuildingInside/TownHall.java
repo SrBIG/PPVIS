@@ -30,12 +30,11 @@ public class TownHall extends JDialog {
         add(info);
         info.setMaximumSize(new Dimension(300, 20));
 
-        viewRaid.setPreferredSize(new Dimension(300, 100));
         viewRaidWithStatus();
         add(viewRaid);
 
         exit.addActionListener(new ExitListener());
-        add(exit);
+        add(exit, BorderLayout.SOUTH);
 
         setModal(true);
         setSize(300, 400);
@@ -46,6 +45,7 @@ public class TownHall extends JDialog {
 
     private void viewRaidWithStatus(){
         viewRaid.removeAll();
+        viewRaid.setPreferredSize(new Dimension(300, 100));
 
         if(controller.getRaid() == null || controller.getRaid().getStatus() == 0){  // 0 - рейда не существует
             viewRaid.add(new JLabel("Введите кол-во муравьёв для рейда:"));
@@ -55,8 +55,13 @@ public class TownHall extends JDialog {
             viewRaid.add(sendToRaid);
             return;
         } else if (controller.getRaid().getStatus() == 1){  // 1 - рейд идёт
+
+            viewRaid.setLayout(new BoxLayout(viewRaid, BoxLayout.Y_AXIS));
             viewRaid.add(new JLabel("Рэйд уже идет!"));
             viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
+            viewRaid.add(new JLabel("Муравьёв в рейде: " + controller.getRaid().getAnts().size()));
+            viewRaid.add(new JLabel("Еды найдено: " + controller.getRaid().getFoundFoods() + " ед"));
+            viewRaid.add(new JLabel("Тли найдено: " + controller.getRaid().getFoundAphids()));
             comeback.addActionListener(new ComebackListener());
             viewRaid.add(comeback);
             return;
@@ -87,6 +92,8 @@ public class TownHall extends JDialog {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             int numAntsForRaid = Integer.parseInt(antsForRaid.getText());
+
+            if(numAntsForRaid < 1) return;
 
             if (controller.getNumAnts() < numAntsForRaid) {
                 JOptionPane.showMessageDialog(null, "У вас недостаточно юнитов!");
