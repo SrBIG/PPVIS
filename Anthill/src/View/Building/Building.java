@@ -1,5 +1,7 @@
 package View.Building;
 
+import Controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,8 +9,10 @@ import java.awt.event.ActionListener;
 
 public class Building extends JPanel{
     private JButton actionZone = new JButton("Default");
+    Controller controller;
 
-    public Building(){
+    public Building(Controller controller){
+        this.controller = controller;
         setLayout(new GridBagLayout());
         actionZone.setBackground(new Color(40,2,2));
         setSize(200, 200);

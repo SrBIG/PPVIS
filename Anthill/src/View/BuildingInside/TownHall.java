@@ -34,7 +34,7 @@ public class TownHall extends JDialog {
         add(viewRaid);
 
         exit.addActionListener(new ExitListener());
-        add(exit, BorderLayout.SOUTH);
+        add(exit);
 
         setModal(true);
         setSize(300, 400);
@@ -55,7 +55,6 @@ public class TownHall extends JDialog {
             viewRaid.add(sendToRaid);
             return;
         } else if (controller.getRaid().getStatus() == 1){  // 1 - рейд идёт
-
             viewRaid.setLayout(new BoxLayout(viewRaid, BoxLayout.Y_AXIS));
             viewRaid.add(new JLabel("Рэйд уже идет!"));
             viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));

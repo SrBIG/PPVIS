@@ -13,9 +13,12 @@ public class Controller {
     private Characteristics characteristics;
     private MainFrame frame;
     private Raid raid;
-    Thread threadRaid;
+    private Thread threadRaid;
 
+    private int consuming = 0;
+    private int maxFoods = 1000;
     private int foods = 0;
+    private int maxAphids = 50;
     private int aphids = 0;
 
 
@@ -96,5 +99,33 @@ public class Controller {
     public void setMaxAnts(int maxAnts) {
         this.maxAnts = maxAnts;
         frame.update();
+    }
+
+    public void killAphid(){
+        aphids--;
+        foods += 10;
+        if(foods>maxFoods) foods = maxFoods;
+    }
+
+    public int getFoods() {
+        return foods;
+    }
+
+    public int getMaxFoods() {
+        return maxFoods;
+    }
+
+
+    public int getAphids() {
+        return aphids;
+    }
+
+
+    public int getMaxAphids() {
+        return maxAphids;
+    }
+
+    public int getConsuming() {
+        return consuming;
     }
 }

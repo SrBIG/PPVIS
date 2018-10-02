@@ -4,11 +4,9 @@ import Controller.Controller;
 import View.BuildingInside.TownHall;
 
 public class BuildingTownHall extends Building {
-    private Controller controller;
 
     public BuildingTownHall(Controller controller){
-        super();
-        this.controller = controller;
+        super(controller);
         rename("Ратуша");
         setColor(244, 170, 66);
     }

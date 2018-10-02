@@ -38,11 +38,11 @@ public class MainFrame{
     private void createStructure(){
         anthill = new Anthill();
         townHall = new BuildingTownHall(controller);
-        foodStorage = new BuildingFoodStorage();
+        foodStorage = new BuildingFoodStorage(controller);
         queensRoom = new BuildingQueensRoom(controller);
-        cowshed = new BuildingCowshed();
-        church = new BuildingChurch();
-        scienceCenter = new BuildingScienceCenter();
+        cowshed = new BuildingCowshed(controller);
+        church = new BuildingChurch(controller);
+        scienceCenter = new BuildingScienceCenter(controller);
 
         left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
         left.setPreferredSize(new Dimension(200, 600));
