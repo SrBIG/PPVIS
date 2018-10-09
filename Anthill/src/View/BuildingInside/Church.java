@@ -1,6 +1,7 @@
 package View.BuildingInside;
 
 import Controller.Controller;
+import Model.Ant;
 
 import javax.swing.*;
 import java.awt.*;
@@ -47,16 +48,15 @@ public class Church extends JDialog {
         }
 
         private void godsAnswer(){
-            int answer = 0;
             int godsGift = 0;
             if(foodsSacrifice < 20){
-                answer = (int)(Math.random() * 5);
+                Answer1 answer = Answer1.values()[(int)(Math.random() * 5)];
                 switch (answer){
-                    case 1:
+                    case WRATH:
                         JOptionPane.showMessageDialog(null, "Ты разгневил богов! Боги сожгли твои поля. Потеряно 20 единиц пищи.");
                         controller.addFoods(-20);
                         break;
-                    case 2:
+                    case FOODS:
                         godsGift = (int)(Math.random()*40 + 1);
                         JOptionPane.showMessageDialog(null, "Боги ниспослали тебе пищу! "+godsGift+" ед.");
                         controller.addFoods(godsGift);
@@ -66,17 +66,17 @@ public class Church extends JDialog {
                 }
                 return;
             } else if (foodsSacrifice < 100){
-                answer = (int)(Math.random()*5);
+                Answer2 answer = Answer2.values()[(int)(Math.random()*5)];
                 switch (answer){
-                    case 1:
+                    case FINE:
                         JOptionPane.showMessageDialog(null, "Ты порадовал богов! Погода будет хорошая.");
                         break;
-                    case 2:
+                    case FOODS:
                         godsGift = (int)(Math.random()*200 + 1);
                         JOptionPane.showMessageDialog(null, "Боги ниспослали тебе пищу! "+godsGift+" ед.");
                         controller.addFoods(godsGift);
                         break;
-                    case 3:
+                    case APHIDS:
                         godsGift = (int)(Math.random()*20 + 1);
                         JOptionPane.showMessageDialog(null, "Боги послали тебе стада! "+godsGift+" голов.");
                         controller.godAphids(godsGift);
@@ -85,13 +85,13 @@ public class Church extends JDialog {
                         JOptionPane.showMessageDialog(null, "Боги тебя не услышали...");
                 }
             } else {
-                answer = (int)(Math.random()*3);
+                Answer3 answer = Answer3.values()[(int)(Math.random()*3)];
                 switch (answer){
-                    case 1:
+                    case ATACK:
                         JOptionPane.showMessageDialog(null, "Боги улучшили геном муравьёв. Атака +1.");
                         controller.godAtackUP();
                         break;
-                    case 2:
+                    case HEALTH:
                         JOptionPane.showMessageDialog(null, "Боги улучшили геном муравьёв. Здоровье +1.");
                         controller.godHealthUP();
                         break;
@@ -100,5 +100,30 @@ public class Church extends JDialog {
                 }
             }
         }
+    }
+
+    enum Answer1{
+        WRATH,
+        FOODS,
+        SILENCE1,
+        SILENCE2,
+        SILENCE3,
+        SILENCE4
+    }
+
+    enum Answer2{
+        FINE,
+        FOODS,
+        APHIDS,
+        SILENCE1,
+        SILENCE2,
+        SILENCE3
+    }
+
+    enum Answer3{
+        ATACK,
+        HEALTH,
+        SILENCE1,
+        SILENCE2
     }
 }
