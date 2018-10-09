@@ -1,9 +1,7 @@
 package View.Building;
 
 import Controller.Controller;
-import sun.util.resources.cldr.ta.CurrencyNames_ta;
-
-import java.awt.*;
+import View.BuildingInside.Church;
 
 public class BuildingChurch extends Building{
     public BuildingChurch(Controller controller){
@@ -14,6 +12,6 @@ public class BuildingChurch extends Building{
 
     @Override
     protected void run() {
-        super.run();
+        new Church(controller);
     }
 }

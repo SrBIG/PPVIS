@@ -17,10 +17,9 @@ public class Controller {
 
     private int consuming = 0;
     private int maxFoods = 1000;
-    private int foods = 0;
+    private int foods = 700;
     private int maxAphids = 50;
     private int aphids = 0;
-
 
     public Controller(MainFrame frame){
         this.frame = frame;
@@ -107,6 +106,25 @@ public class Controller {
         if(foods>maxFoods) foods = maxFoods;
     }
 
+
+    public void addFoods(int godsFoods){
+        foods += godsFoods;
+        if(foods > maxFoods) foods = maxFoods;
+    }
+
+    public void godAphids(int godsAphids){
+        aphids += godsAphids;
+        if(aphids > maxAphids) aphids = maxAphids;
+    }
+
+    public void godAtackUP(){
+        characteristics.upAntAtack(1);
+    }
+
+    public void godHealthUP(){
+        characteristics.upHealth(1);
+    }
+
     public int getFoods() {
         return foods;
     }
@@ -115,11 +133,9 @@ public class Controller {
         return maxFoods;
     }
 
-
     public int getAphids() {
         return aphids;
     }
-
 
     public int getMaxAphids() {
         return maxAphids;

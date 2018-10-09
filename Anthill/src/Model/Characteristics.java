@@ -19,12 +19,20 @@ public class Characteristics {
         this.antAtack = antAtack;
     }
 
+    public void upAntAtack(int upAtack){
+        antAtack+=upAtack;
+    }
+
     public int getAntMaxHealth() {
         return antMaxHealth;
     }
 
     public void setAntMaxHealth(int antMaxHealth) {
         this.antMaxHealth = antMaxHealth;
+    }
+
+    public void upHealth(int upHealth){
+        antMaxHealth+=upHealth;
     }
 
     public int getAntEat() {
