@@ -59,6 +59,9 @@ public class ScienceCenter extends JDialog {
         add(anthil);
     }
 
+    private void calcCost(){
+    }
+
     private class UpAtackListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent actionEvent) {

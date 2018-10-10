@@ -106,7 +106,6 @@ public class Controller {
         if(foods>maxFoods) foods = maxFoods;
     }
 
-
     public void addFoods(int godsFoods){
         foods += godsFoods;
         if(foods > maxFoods) foods = maxFoods;
@@ -144,4 +143,6 @@ public class Controller {
     public int getConsuming() {
         return consuming;
     }
+
+
 }

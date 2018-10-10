@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d338b3e4-655b-4003-bf46-f65108d5bb95" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Model/UpgradeLvl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -14,23 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="Cowshed.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/Cowshed.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
+            <state relative-caret-position="477">
+              <caret line="146" selection-start-line="146" selection-end-line="146" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Controller#0;class#Controller#0" />
@@ -42,7 +33,18 @@
                 <element signature="method#addAnt#0;class#Controller#0" />
                 <element signature="method#setMaxAnts#0;class#Controller#0" />
                 <element signature="method#killAphid#0;class#Controller#0" />
+                <element signature="method#addFoods#0;class#Controller#0" />
+                <element signature="method#godAphids#0;class#Controller#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UpgradeLvl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/UpgradeLvl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -88,11 +90,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScienceCenter.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScienceCenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+            <state relative-caret-position="342">
+              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -185,11 +187,12 @@
         <option value="$PROJECT_DIR$/src/View/BuildingInside/Cowshed.java" />
         <option value="$PROJECT_DIR$/src/Model/Characteristics.java" />
         <option value="$PROJECT_DIR$/src/View/Building/BuildingChurch.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/Church.java" />
         <option value="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/FoodStorage.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Model/UpgradeLvl.java" />
       </list>
     </option>
   </component>
@@ -384,12 +387,12 @@
       <workItem from="1539105341036" duration="3144000" />
       <workItem from="1539112504770" duration="12000" />
       <workItem from="1539113341196" duration="661000" />
-      <workItem from="1539186769256" duration="2255000" />
+      <workItem from="1539186769256" duration="5089000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94271000" />
+    <option name="totallyTimeSpent" value="97105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -405,11 +408,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32881" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32881" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16495956" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16495956" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -445,13 +448,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/View/Anthill.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Building/BuildingTownHall.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -741,25 +737,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="109" column="19" selection-start-line="109" selection-start-column="19" selection-end-line="109" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#Controller#0;class#Controller#0" />
-            <element signature="method#getRaid#0;class#Controller#0" />
-            <element signature="method#beginRaid#0;class#Controller#0" />
-            <element signature="method#comebackRaid#0;class#Controller#0" />
-            <element signature="method#collectResurs#0;class#Controller#0" />
-            <element signature="method#getSubAnts#0;class#Controller#0" />
-            <element signature="method#addAnt#0;class#Controller#0" />
-            <element signature="method#setMaxAnts#0;class#Controller#0" />
-            <element signature="method#killAphid#0;class#Controller#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Building/Building.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="378">
@@ -821,11 +798,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
+        <state relative-caret-position="342">
+          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="477">
+          <caret line="146" selection-start-line="146" selection-end-line="146" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#Controller#0;class#Controller#0" />
+            <element signature="method#getRaid#0;class#Controller#0" />
+            <element signature="method#beginRaid#0;class#Controller#0" />
+            <element signature="method#comebackRaid#0;class#Controller#0" />
+            <element signature="method#collectResurs#0;class#Controller#0" />
+            <element signature="method#getSubAnts#0;class#Controller#0" />
+            <element signature="method#addAnt#0;class#Controller#0" />
+            <element signature="method#setMaxAnts#0;class#Controller#0" />
+            <element signature="method#killAphid#0;class#Controller#0" />
+            <element signature="method#addFoods#0;class#Controller#0" />
+            <element signature="method#godAphids#0;class#Controller#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/UpgradeLvl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
         </state>
       </provider>
     </entry>
