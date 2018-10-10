@@ -2,18 +2,15 @@ package View.BuildingInside;
 
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ScienceCenter extends JDialog {
-    private JButton upAtack = new JButton("Атака +1");
-    private JButton upHealth = new JButton("Здоровье +1");
-    private JButton upConsuming = new JButton("Потребление -1");
-    private JButton upAnthil = new JButton("Места +20");
-
-    private int lvlAtack = 0;
-    private int maxLvlAtack = 5;
-    //private int
+    private JButton upAtack = new JButton("");
+    private JButton upHealth = new JButton("");
+    private JButton upConsuming = new JButton("");
+    private JButton upAnthil = new JButton("");
 
     public ScienceCenter(){
 
@@ -27,7 +24,7 @@ public class ScienceCenter extends JDialog {
         paintUpFunctions();
 
         setModal(true);
-        setSize(500, 200);
+        setSize(300, 200);
         setLocationRelativeTo(null);
         setResizable(false);
         setVisible(true);
@@ -39,40 +36,27 @@ public class ScienceCenter extends JDialog {
         JPanel consuming = new JPanel();
         JPanel anthil = new JPanel();
 
-        atack.add(new JLabel("Увеличение атаки: "));
+        upAtack.setPreferredSize(new Dimension(70, 25));
+        upHealth.setPreferredSize(new Dimension(70, 25));
+        upConsuming.setPreferredSize(new Dimension(70, 25));
+        upAnthil.setPreferredSize(new Dimension(70, 25));
+
+        atack.add(new JLabel("Атака +1: "));
         atack.add(upAtack);
 
-        health.add(new JLabel("Увеличение здоровья: "));
+        health.add(new JLabel("Здоровье +1: "));
         health.add(upHealth);
 
-        consuming.add(new JLabel("Уменьшения потребления пищи: "));
+        consuming.add(new JLabel("Потребление -1: "));
         consuming.add(upConsuming);
 
-        anthil.add(new JLabel("Увеличение кол-ва мест в муравейнике: "));
+        anthil.add(new JLabel("Места +20: "));
         anthil.add(upAnthil);
 
         add(atack);
         add(health);
         add(consuming);
         add(anthil);
-
-//        JPanel left = new JPanel();
-//        JPanel right = new JPanel();
-//        left.setLayout(new BoxLayout(left, BoxLayout.Y_AXIS));
-//        right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-//
-//        left.add(new JLabel("Увеличение атаки: "));
-//        left.add(new JLabel("Увеличение здоровья: "));
-//        left.add(new JLabel("Уменьшения потребления пищи: "));
-//        left.add(new JLabel("Увеличение кол-ва мест в муравейнике: "));
-//
-//        right.add(upAtack);
-//        right.add(upHealth);
-//        right.add(upConsuming);
-//        right.add(upAnthil);
-//
-//        add(left);
-//        add(right);
     }
 
     private class UpAtackListener implements ActionListener{

@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d338b3e4-655b-4003-bf46-f65108d5bb95" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/BuildingInside/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BuildingInside/Church.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,8 +91,8 @@
       <file leaf-file-name="ScienceCenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+            <state relative-caret-position="307">
+              <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -386,12 +384,12 @@
       <workItem from="1539105341036" duration="3144000" />
       <workItem from="1539112504770" duration="12000" />
       <workItem from="1539113341196" duration="661000" />
-      <workItem from="1539186769256" duration="2003000" />
+      <workItem from="1539186769256" duration="2255000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94019000" />
+    <option name="totallyTimeSpent" value="94271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -823,8 +821,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        <state relative-caret-position="307">
+          <caret line="25" column="19" selection-start-line="25" selection-start-column="19" selection-end-line="25" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
