@@ -78,7 +78,7 @@ public class Church extends JDialog {
                         break;
                     case APHIDS:
                         godsGift = (int)(Math.random()*20 + 1);
-                        JOptionPane.showMessageDialog(null, "Боги послали тебе стада! "+godsGift+" голов.");
+                        JOptionPane.showMessageDialog(null, "Боги послали тебе стада! "+godsGift+" шт.");
                         controller.godAphids(godsGift);
                         break;
                     default:

@@ -1,6 +1,7 @@
 package View.Building;
 
 import Controller.Controller;
+import View.BuildingInside.ScienceCenter;
 
 import java.awt.*;
 
@@ -14,6 +15,6 @@ public class BuildingScienceCenter extends Building{
 
     @Override
     protected void run() {
-        super.run();
+        new ScienceCenter();
     }
 }
