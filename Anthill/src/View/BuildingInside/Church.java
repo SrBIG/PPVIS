@@ -1,7 +1,6 @@
 package View.BuildingInside;
 
 import Controller.Controller;
-import Model.Ant;
 
 import javax.swing.*;
 import java.awt.*;
@@ -42,7 +41,7 @@ public class Church extends JDialog {
                 JOptionPane.showMessageDialog(null, "У вас недостаточно ресурсов!");
                 return;
             }
-            controller.addFoods(-foodsSacrifice);
+            controller.changeFood(-foodsSacrifice);
 
             godsAnswer();
         }
@@ -54,12 +53,12 @@ public class Church extends JDialog {
                 switch (answer){
                     case WRATH:
                         JOptionPane.showMessageDialog(null, "Ты разгневил богов! Боги сожгли твои поля. Потеряно 20 единиц пищи.");
-                        controller.addFoods(-20);
+                        controller.changeFood(-20);
                         break;
                     case FOODS:
                         godsGift = (int)(Math.random()*40 + 1);
                         JOptionPane.showMessageDialog(null, "Боги ниспослали тебе пищу! "+godsGift+" ед.");
-                        controller.addFoods(godsGift);
+                        controller.changeFood(godsGift);
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "Боги тебя не услышали...");
@@ -74,7 +73,7 @@ public class Church extends JDialog {
                     case FOODS:
                         godsGift = (int)(Math.random()*200 + 1);
                         JOptionPane.showMessageDialog(null, "Боги ниспослали тебе пищу! "+godsGift+" ед.");
-                        controller.addFoods(godsGift);
+                        controller.changeFood(godsGift);
                         break;
                     case APHIDS:
                         godsGift = (int)(Math.random()*20 + 1);

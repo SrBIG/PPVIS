@@ -3,6 +3,7 @@ package Controller;
 import Model.Action.Raid;
 import Model.Ant;
 import Model.Characteristics;
+import Model.UpgradeLvl;
 import View.MainFrame;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ public class Controller {
     private ArrayList<Ant> ants = new ArrayList<>();
     private int maxAnts = 100;
     private Characteristics characteristics;
+    private UpgradeLvl upgradeLvl;
     private MainFrame frame;
     private Raid raid;
     private Thread threadRaid;
@@ -24,6 +26,7 @@ public class Controller {
     public Controller(MainFrame frame){
         this.frame = frame;
         characteristics = new Characteristics();
+        upgradeLvl = new UpgradeLvl();
     }
 
     public Raid getRaid(){
@@ -106,7 +109,7 @@ public class Controller {
         if(foods>maxFoods) foods = maxFoods;
     }
 
-    public void addFoods(int godsFoods){
+    public void changeFood(int godsFoods){
         foods += godsFoods;
         if(foods > maxFoods) foods = maxFoods;
     }
@@ -144,5 +147,16 @@ public class Controller {
         return consuming;
     }
 
+    public UpgradeLvl getUpgradeLvl() {
+        return upgradeLvl;
+    }
 
+    public void addAntPlace(int addPlace){
+        maxAnts+=addPlace;
+        frame.update();
+    }
+
+    public Characteristics getCharacteristics(){
+        return characteristics;
+    }
 }

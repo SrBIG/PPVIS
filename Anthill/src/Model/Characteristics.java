@@ -8,7 +8,7 @@ public class Characteristics {
     public Characteristics(){
         antAtack = 1;
         antMaxHealth = 3;
-        antEat = 3;
+        antEat = 4;
     }
 
     public int getAntAtack() {
@@ -41,5 +41,9 @@ public class Characteristics {
 
     public void setAntEat(int antEat) {
         this.antEat = antEat;
+    }
+
+    public void upConsuming(){
+        antEat--;
     }
 }

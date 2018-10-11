@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d338b3e4-655b-4003-bf46-f65108d5bb95" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Model/UpgradeLvl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Characteristics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Characteristics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/UpgradeLvl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/UpgradeLvl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View/BuildingInside/Church.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BuildingInside/Church.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,8 +23,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
-              <caret line="146" selection-start-line="146" selection-end-line="146" />
+            <state relative-caret-position="459">
+              <caret line="154" column="26" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Controller#0;class#Controller#0" />
@@ -33,18 +36,20 @@
                 <element signature="method#addAnt#0;class#Controller#0" />
                 <element signature="method#setMaxAnts#0;class#Controller#0" />
                 <element signature="method#killAphid#0;class#Controller#0" />
-                <element signature="method#addFoods#0;class#Controller#0" />
+                <element signature="method#changeFood#0;class#Controller#0" />
                 <element signature="method#godAphids#0;class#Controller#0" />
+                <element signature="e#3378#3379#0" expanded="true" />
+                <element signature="e#3408#3409#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UpgradeLvl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="UpgradeLvl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/UpgradeLvl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+            <state relative-caret-position="99">
+              <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -52,23 +57,11 @@
       <file leaf-file-name="Characteristics.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/Characteristics.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Raid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Action/Raid.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="26" column="14" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
+            <state relative-caret-position="558">
+              <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#findAphids#0;class#Raid#0" />
-                <element signature="method#deathAphid#0;class#Raid#0" />
-                <element signature="method#findFoods#0;class#Raid#0" />
-                <element signature="method#foundAnts#0;class#Raid#0" />
+                <element signature="e#876#877#0" expanded="true" />
+                <element signature="e#899#900#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -78,7 +71,7 @@
         <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/Church.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="216">
-              <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="26" />
+              <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#actionPerformed#0;class#ImmolationListener#0;class#Church#0" />
@@ -90,14 +83,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScienceCenter.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ScienceCenter.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+            <state relative-caret-position="482">
+              <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2932#2933#0" expanded="true" />
+                <element signature="e#2958#2959#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Ant.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Model/Ant.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -105,23 +109,11 @@
       <file leaf-file-name="BuildingScienceCenter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+            <state relative-caret-position="126">
+              <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
               <folding>
                 <element signature="e#366#367#0" expanded="true" />
-                <element signature="e#400#401#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Building.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/View/Building/Building.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
-              <folding>
-                <element signature="e#826#827#0" expanded="true" />
+                <element signature="e#401#402#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -143,7 +135,16 @@
         <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/FoodStorage.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TownHall.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/TownHall.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="396">
+              <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -185,14 +186,14 @@
         <option value="$PROJECT_DIR$/src/View/BuildingInside/TownHall.java" />
         <option value="$PROJECT_DIR$/src/View/Building/BuildingCowshed.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/Cowshed.java" />
-        <option value="$PROJECT_DIR$/src/Model/Characteristics.java" />
         <option value="$PROJECT_DIR$/src/View/Building/BuildingChurch.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/Church.java" />
-        <option value="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" />
         <option value="$PROJECT_DIR$/src/View/BuildingInside/FoodStorage.java" />
-        <option value="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" />
-        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/Model/Characteristics.java" />
+        <option value="$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java" />
         <option value="$PROJECT_DIR$/src/Model/UpgradeLvl.java" />
+        <option value="$PROJECT_DIR$/src/Controller/Controller.java" />
+        <option value="$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java" />
       </list>
     </option>
   </component>
@@ -217,6 +218,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -272,12 +276,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/mrbig/PPVIS/Anthill/src/Controller/Controller.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -387,12 +389,13 @@
       <workItem from="1539105341036" duration="3144000" />
       <workItem from="1539112504770" duration="12000" />
       <workItem from="1539113341196" duration="661000" />
-      <workItem from="1539186769256" duration="5089000" />
+      <workItem from="1539186769256" duration="6164000" />
+      <workItem from="1539241314881" duration="4611000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="97105000" />
+    <option name="totallyTimeSpent" value="102791000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
@@ -654,13 +657,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/Raid.java" />
-    <entry file="file://$PROJECT_DIR$/src/Model/Ant.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/AnthillLvl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-36">
@@ -675,17 +671,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/TownHall.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="28" column="30" lean-forward="true" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/Building/BuildingFoodStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="16" column="96" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="96" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -757,17 +749,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Characteristics.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="34" column="31" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/Church.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="216">
-          <caret line="18" selection-start-line="18" selection-end-line="20" selection-end-column="26" />
+          <caret line="17" selection-start-line="17" selection-end-line="19" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#actionPerformed#0;class#ImmolationListener#0;class#Church#0" />
@@ -778,38 +763,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
-          <folding>
-            <element signature="e#366#367#0" expanded="true" />
-            <element signature="e#400#401#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/FoodStorage.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/Ant.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
+        <state relative-caret-position="288">
+          <caret line="16" column="17" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/Characteristics.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
+            <element signature="e#899#900#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/TownHall.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="79" column="38" lean-forward="true" selection-start-line="79" selection-start-column="38" selection-end-line="79" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/UpgradeLvl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="55" column="21" selection-start-line="55" selection-start-column="21" selection-end-line="55" selection-end-column="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="146" selection-start-line="146" selection-end-line="146" />
+        <state relative-caret-position="459">
+          <caret line="154" column="26" selection-start-line="154" selection-start-column="26" selection-end-line="154" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Controller#0;class#Controller#0" />
@@ -821,16 +817,34 @@
             <element signature="method#addAnt#0;class#Controller#0" />
             <element signature="method#setMaxAnts#0;class#Controller#0" />
             <element signature="method#killAphid#0;class#Controller#0" />
-            <element signature="method#addFoods#0;class#Controller#0" />
+            <element signature="method#changeFood#0;class#Controller#0" />
             <element signature="method#godAphids#0;class#Controller#0" />
+            <element signature="e#3378#3379#0" expanded="true" />
+            <element signature="e#3408#3409#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/UpgradeLvl.java">
+    <entry file="file://$PROJECT_DIR$/src/View/Building/BuildingScienceCenter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="19" column="39" lean-forward="true" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        <state relative-caret-position="126">
+          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+          <folding>
+            <element signature="e#366#367#0" expanded="true" />
+            <element signature="e#401#402#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/View/BuildingInside/ScienceCenter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="482">
+          <caret line="136" column="43" selection-start-line="136" selection-start-column="43" selection-end-line="136" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2932#2933#0" expanded="true" />
+            <element signature="e#2958#2959#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

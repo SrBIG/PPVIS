@@ -15,6 +15,6 @@ public class BuildingScienceCenter extends Building{
 
     @Override
     protected void run() {
-        new ScienceCenter();
+        new ScienceCenter(controller);
     }
 }
