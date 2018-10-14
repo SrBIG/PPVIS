@@ -36,7 +36,7 @@ public class MainFrame{
     }
 
     private void createStructure(){
-        anthill = new Anthill();
+        anthill = new Anthill(100);
         townHall = new BuildingTownHall(controller);
         foodStorage = new BuildingFoodStorage(controller);
         queensRoom = new BuildingQueensRoom(controller);
@@ -80,5 +80,9 @@ public class MainFrame{
                 new MainFrame();
             }
         });
+    }
+
+    public void addAnt(){
+        anthill.addNewAnt();
     }
 }

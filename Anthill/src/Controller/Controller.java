@@ -7,6 +7,7 @@ import Model.UpgradeLvl;
 import View.MainFrame;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Controller {
     private ArrayList<Ant> ants = new ArrayList<>();
@@ -91,6 +92,7 @@ public class Controller {
         if(ants.size() < maxAnts) {
             ants.add(new Ant(characteristics));
         }
+        frame.addAnt();
         frame.update();
     }
 

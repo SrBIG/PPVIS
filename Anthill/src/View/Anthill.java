@@ -1,99 +1,80 @@
 package View;
 
+import Model.AntP;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Anthill extends JComponent{
-    private int numOfAnts;
-    private int maxAnts;
-    ArrayList<AnthillLvl> anthillLvls = new ArrayList();
-    AnthillLvl anthillLvl = new AnthillLvl();
+    private java.util.List<AntP> ants = new ArrayList<>();
+    private BufferedImage buffer;
+    private int radius;
 
-    public Anthill() {
-        setSize(400, 600);
-        //setSize(getWidth(),getHeight());
-        add(anthillLvl);
-    }
-}
-
-        /*
+    public Anthill(int radius) {
         this.radius = radius;
-        this.maxAnts = maxAnts;
-        createAngles();
-        angle = 0;
-        Timer timer = new Timer(1, new ActionListener() {
+        setSize(400, 600);
+        Timer timer = new Timer(40, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                angle += 0.001;
-                if (angle > 6.28) angle = 0;
+                rebuildBuffer();
                 repaint();
             }
         });
         timer.start();
+
+        // add(anthillLvl);
+        // (x – a)2 + (y – b)2 = R2
     }
 
-    protected void paintComponent(Graphics g) {
+    private void rebuildBuffer(){
         int width = getWidth();
         int height = getHeight();
-        g.setColor(Color.white);
-        g.fillRect(0, 0, width, height);
-        g.setColor(Color.black);
-        Graphics2D g2d = (Graphics2D) g;
+        buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g2d = buffer.createGraphics();
+//        int width = frameWidth;
+//        int height = frameHeight;
+        g2d.setColor(Color.black);
         g2d.setStroke(new BasicStroke(1f));
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2d.draw(circle(width/2, height/2, 100));
-        double x = width / 2;
-        double y = height / 2;
-        double r = 5;
-        double an = angle;
-        x += 100 * Math.cos(an);
-        y += 100 * Math.sin(an);
-        g2d.fill(circle(x, y, r));
+        g2d.draw(circle(width/2, height/2, radius));
 
-        g2d.draw(circle(width/2, height/2, 100));
-        double x1 = width / 2;
-        double y1= height / 2;
-        double r1 = 5;
-        double an1 = angle + 0.5;
-        x1 += 100 * Math.cos(an1);
-        y1 += 100 * Math.sin(an1);
-        g2d.fill(circle(x1, y1, r1));
+
+        int upBorder = (getHeight()/2)-radius;
+        int botBorder = (getHeight()/2)+radius;
+        int leftBorder = getWidth()/2-radius;
+        int rightBorder = getWidth()/2+radius;
+        g2d.drawLine(upBorder, leftBorder, upBorder, rightBorder);
+        g2d.drawLine(botBorder, leftBorder, botBorder, rightBorder);
+
+        for(AntP ant : ants){
+            int xAnt = ant.getX();
+            int yAnt = ant.getY();
+            int sizeAnt = ant.getSize();
+
+            g2d.fill(circle(xAnt, yAnt, sizeAnt));
+            ant.calcWay();
+        }
+    }
+
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        if (buffer == null) {
+            rebuildBuffer();
+        }
+        g.drawImage(buffer, 0, 0, this);
     }
 
     private Shape circle(double x, double y, double r) {
         return new Ellipse2D.Double(x - r, y - r, 2 * r, 2 * r);
     }
 
-    private void createAngles(){
-        float angle = 0;
-        float circumference = 6.28f;
-        float step = circumference/maxAnts;
-        for(int count = 0; count < maxAnts; count++){
-            angles.add(angle);
-            angle += step;
-        }
-    }
-
-    public int getNumOfAnts(){
-        return numOfAnts;
-    }
-
-    public void setNumOfAnts (int num){
-        this.numOfAnts = num;
-    }
-
-    public int getMaxAnts() {
-        return maxAnts;
-    }
-
-    public void setMaxAnts(int maxAnts) {
-        this.maxAnts = maxAnts;
-    }
-
-    public boolean isFull(){
-        if(numOfAnts == maxAnts) return true;
-        else return false;
+    public void addNewAnt(){
+        ants.add(new AntP(getWidth()/2, getHeight()/2, 5));
     }
 }
-*/
