@@ -26,36 +26,29 @@ public class Anthill extends JComponent{
             }
         });
         timer.start();
-
-        // add(anthillLvl);
-        // (x – a)2 + (y – b)2 = R2
     }
 
     private void rebuildBuffer(){
         int width = getWidth();
         int height = getHeight();
+        int xCenter = width/2;
+        int yCenter = height/2;
         buffer = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
         Graphics2D g2d = buffer.createGraphics();
-//        int width = frameWidth;
-//        int height = frameHeight;
         g2d.setColor(Color.black);
         g2d.setStroke(new BasicStroke(1f));
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        g2d.draw(circle(width/2, height/2, radius));
-
-
-        int upBorder = (getHeight()/2)-radius;
-        int botBorder = (getHeight()/2)+radius;
-        int leftBorder = getWidth()/2-radius;
-        int rightBorder = getWidth()/2+radius;
-        g2d.drawLine(upBorder, leftBorder, upBorder, rightBorder);
-        g2d.drawLine(botBorder, leftBorder, botBorder, rightBorder);
+        g2d.draw(circle(xCenter, yCenter, radius));
 
         for(AntP ant : ants){
             int xAnt = ant.getX();
             int yAnt = ant.getY();
             int sizeAnt = ant.getSize();
+
+            if ((Math.sqrt(Math.pow(xAnt-xCenter,2) + Math.pow(yAnt-yCenter,2))) > radius) {
+                ant.findNewWay();
+            }
 
             g2d.fill(circle(xAnt, yAnt, sizeAnt));
             ant.calcWay();

@@ -40,6 +40,12 @@ public class AntP {
         step++;
     }
 
+    public void findNewWay(){
+        step=maxStep;
+        x-=routeX;
+        y-=routeY;
+    }
+
     private int calcRoute(){
         if(Math.random() < 0.5){
             return -1;
