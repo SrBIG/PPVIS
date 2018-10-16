@@ -14,6 +14,7 @@ public class Anthill extends JComponent{
     private java.util.List<AntP> ants = new ArrayList<>();
     private BufferedImage buffer;
     private int radius;
+    private AntP awayAnt = null;
 
     public Anthill(int radius) {
         this.radius = radius;
@@ -46,13 +47,23 @@ public class Anthill extends JComponent{
             int yAnt = ant.getY();
             int sizeAnt = ant.getSize();
 
-            if ((Math.sqrt(Math.pow(xAnt-xCenter,2) + Math.pow(yAnt-yCenter,2))) > radius) {
-                ant.findNewWay();
+            if (ant.isNeedAway()){
+                if(ant.isAway()){
+                    awayAnt = ant;
+                    continue;
+                }
+                ant.goAway(xCenter, height);
+                g2d.fill(circle(xAnt, yAnt, sizeAnt));
+                continue;
+            } else if ((Math.sqrt(Math.pow(xAnt-xCenter,2) + Math.pow(yAnt-yCenter,2))) > radius) {
+                ant.findNewWay(xCenter, yCenter);
             }
 
             g2d.fill(circle(xAnt, yAnt, sizeAnt));
             ant.calcWay();
         }
+        ants.remove(awayAnt);
+        awayAnt = null;
     }
 
     protected void paintComponent(Graphics g) {
@@ -69,5 +80,16 @@ public class Anthill extends JComponent{
 
     public void addNewAnt(){
         ants.add(new AntP(getWidth()/2, getHeight()/2, 5));
+    }
+
+    public void needAway(int awayAnts){
+        for(AntP ant : ants){
+            if(awayAnts > 0){
+                ant.setNeedAway(true);
+                awayAnts--;
+                continue;
+            }
+            break;
+        }
     }
 }

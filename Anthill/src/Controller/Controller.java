@@ -37,6 +37,7 @@ public class Controller {
     }
 
     public void beginRaid(ArrayList<Ant> antsInRaid) {
+        frame.needAway(antsInRaid.size());
         for(Ant ant : antsInRaid){
             ants.remove(ant);
         }

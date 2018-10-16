@@ -85,4 +85,8 @@ public class MainFrame{
     public void addAnt(){
         anthill.addNewAnt();
     }
+
+    public void needAway(int numAnts){
+        anthill.needAway(numAnts);
+    }
 }

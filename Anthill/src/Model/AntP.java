@@ -4,6 +4,9 @@ public class AntP {
     public static final int X = 1;
     public static final int Y = 2;
 
+    private boolean needAway = false;
+    private boolean away = false;
+
     private int x;
     private int y;
     private int size;
@@ -40,10 +43,18 @@ public class AntP {
         step++;
     }
 
-    public void findNewWay(){
+    public void findNewWay(int x0, int y0){
         step=maxStep;
-        x-=routeX;
-        y-=routeY;
+        if(x>x0){
+            x--;
+        } else if(x<x0){
+            x++;
+        }
+        if(y>y0){
+            y--;
+        } else if(y<y0){
+            y++;
+        }
     }
 
     private int calcRoute(){
@@ -52,12 +63,24 @@ public class AntP {
         } else return 1;
     }
 
-    public void stopMove(int coord){
-        if(X == coord){
-            routeX = -routeX;
-        } else if (Y == coord){
-            routeY = -routeY;
+    public void goAway(int xExit, int yExit){
+        if(x > xExit){
+            x--;
+            return;
+        } else if(x < xExit){
+            x++;
+            return;
         }
+
+        if(y > yExit){
+            y--;
+            return;
+        } else if(y < yExit){
+            y++;
+            return;
+        }
+
+        away = true;
     }
 
     public int getX() {
@@ -70,5 +93,17 @@ public class AntP {
 
     public int getSize() {
         return size;
+    }
+
+    public boolean isNeedAway() {
+        return needAway;
+    }
+
+    public void setNeedAway(boolean needAway) {
+        this.needAway = needAway;
+    }
+
+    public boolean isAway() {
+        return away;
     }
 }
