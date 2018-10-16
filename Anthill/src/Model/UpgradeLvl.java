@@ -46,7 +46,7 @@ public class UpgradeLvl {
             upgradeLvl = cowshedLvl;
         } else return 0;
 
-        for(int lvl = 0; lvl <= upgradeLvl; lvl++){
+        for(int lvl = 1; lvl <= upgradeLvl; lvl++){
             upgradeCost *= 2;
         }
 

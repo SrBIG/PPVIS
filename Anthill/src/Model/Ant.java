@@ -9,7 +9,7 @@ public class Ant {
     public Ant(){
         maxHealth = 3;
         atack = 1;
-        eat = 3;
+        eat = 4;
 
         health = maxHealth;
     }
@@ -31,5 +31,9 @@ public class Ant {
         if (health <= 0){
             return -1;
         } else return 1;
+    }
+
+    public int getEat() {
+        return eat;
     }
 }

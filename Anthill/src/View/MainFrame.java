@@ -21,8 +21,10 @@ public class MainFrame{
     JPanel left = new JPanel();
     JPanel center = new JPanel();
     JPanel right = new JPanel();
+    JPanel info = new JPanel();
 
     JLabel numberAnts = new JLabel();
+    JLabel numberFoods = new JLabel();
 
     public MainFrame(){
         controller = new Controller(this);
@@ -58,9 +60,16 @@ public class MainFrame{
 
         center.setLayout(new BorderLayout());
         center.setPreferredSize(new Dimension(400, 600));
+
         numberAnts.setHorizontalAlignment(JLabel.CENTER);
-        numberAnts.setText(String.valueOf(controller.getNumAnts()+"/"+controller.getMaxAnts()));
-        center.add(numberAnts, BorderLayout.NORTH);
+        numberAnts.setText("M: "+controller.getNumAnts()+"/"+controller.getMaxAnts());
+        numberFoods.setHorizontalAlignment(JLabel.CENTER);
+        numberFoods.setText("E: "+controller.getFoods()+"/"+controller.getMaxFoods());
+
+        info.add(numberFoods);
+        info.add(numberAnts);
+        center.add(info, BorderLayout.NORTH);
+
         center.add(anthill);
 
         frame.add(left);
@@ -69,7 +78,8 @@ public class MainFrame{
     }
 
     public void update(){
-        numberAnts.setText(String.valueOf(controller.getNumAnts()+"/"+controller.getMaxAnts()));
+        numberAnts.setText("M: "+controller.getNumAnts()+"/"+controller.getMaxAnts());
+        numberFoods.setText("E: "+controller.getFoods()+"/"+controller.getMaxFoods());
         frame.repaint();
     }
 
@@ -88,5 +98,15 @@ public class MainFrame{
 
     public void needAway(int numAnts){
         anthill.needAway(numAnts);
+    }
+
+    public void warningStarvation(int starvation){
+        int roundToDead = 6 - starvation;
+        JOptionPane.showMessageDialog(null, "Меравьи голодают! Смерть через " + roundToDead + " тика(ов)");
+    }
+
+    public void gameOver(){
+        JOptionPane.showMessageDialog(null, "Вы не смогли прокормить своих муравьев! Игра закончена!");
+        System.exit(666);
     }
 }

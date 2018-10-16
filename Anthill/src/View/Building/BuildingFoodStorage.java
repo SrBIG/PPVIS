@@ -14,6 +14,6 @@ public class BuildingFoodStorage extends Building{
 
     @Override
     protected void run() {
-        new FoodStorage(controller.getFoods(), controller.getMaxFoods(), controller.getConsuming());
+        new FoodStorage(controller);
     }
 }

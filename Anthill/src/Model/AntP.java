@@ -6,6 +6,8 @@ public class AntP {
 
     private boolean needAway = false;
     private boolean away = false;
+    private boolean needCenter = false;
+    private boolean center = false;
 
     private int x;
     private int y;
@@ -66,10 +68,8 @@ public class AntP {
     public void goAway(int xExit, int yExit){
         if(x > xExit){
             x--;
-            return;
         } else if(x < xExit){
             x++;
-            return;
         }
 
         if(y > yExit){
@@ -81,6 +81,24 @@ public class AntP {
         }
 
         away = true;
+    }
+
+    public void returnToAnthil(int xCenter, int yCenter){
+        if(x > xCenter){
+            x--;
+        } else if(x < xCenter) {
+            x++;
+        }
+
+        if(y > yCenter){
+            y--;
+            return;
+        } else if(y < yCenter){
+            y++;
+            return;
+        }
+
+        center = true;
     }
 
     public int getX() {
@@ -105,5 +123,17 @@ public class AntP {
 
     public boolean isAway() {
         return away;
+    }
+
+    public boolean isNeedCenter() {
+        return needCenter;
+    }
+
+    public void setNeedCenter(boolean needCenter) {
+        this.needCenter = needCenter;
+    }
+
+    public boolean isCenter() {
+        return center;
     }
 }

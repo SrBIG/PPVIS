@@ -6,8 +6,10 @@ import Model.Characteristics;
 import Model.UpgradeLvl;
 import View.MainFrame;
 
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
     private ArrayList<Ant> ants = new ArrayList<>();
@@ -17,17 +19,26 @@ public class Controller {
     private MainFrame frame;
     private Raid raid;
     private Thread threadRaid;
+    private int starvation = 0;
 
     private int consuming = 0;
     private int maxFoods = 1000;
-    private int foods = 700;
+    private int foods = 500;
     private int maxAphids = 50;
-    private int aphids = 0;
+    private int aphids = 5;
 
     public Controller(MainFrame frame){
         this.frame = frame;
         characteristics = new Characteristics();
         upgradeLvl = new UpgradeLvl();
+        Timer timer = new Timer(5000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                aphidFood();
+                antEat();
+            }
+        });
+        timer.start();
     }
 
     public Raid getRaid(){
@@ -56,6 +67,10 @@ public class Controller {
         raid = null;
     }
 
+    public void raidEnd(){
+        raid.end();
+    }
+
     public void comebackRaid(){
         if(raid == null) return;
         Thread threadComeback = new Thread(new Runnable() {
@@ -67,12 +82,13 @@ public class Controller {
         threadComeback.start();
     }
 
-    public void collectResurs(){
+    public void collectResource(){
         for(Ant ant : raid.getAnts()){
             ants.add(ant);
+            frame.addAnt();
         }
-        foods = raid.getFoundFoods();
-        aphids = raid.getFoundAphids();
+        foods += raid.getFoundFoods();
+        aphids += raid.getFoundAphids();
         raid = null;
         frame.update();
     }
@@ -90,10 +106,12 @@ public class Controller {
     }
 
     public void addAnt(){
-        if(ants.size() < maxAnts) {
+        int costAnt = 5;
+        if(ants.size() < maxAnts && costAnt < foods) {
             ants.add(new Ant(characteristics));
+            frame.addAnt();
+            changeFood(-costAnt);
         }
-        frame.addAnt();
         frame.update();
     }
 
@@ -110,11 +128,15 @@ public class Controller {
         aphids--;
         foods += 10;
         if(foods>maxFoods) foods = maxFoods;
+        frame.update();
     }
 
-    public void changeFood(int godsFoods){
+    public boolean changeFood(int godsFoods){
         foods += godsFoods;
         if(foods > maxFoods) foods = maxFoods;
+        if (foods < 0) foods = 0;
+        frame.update();
+        return foods == 0 ? false : true;
     }
 
     public void godAphids(int godsAphids){
@@ -161,5 +183,29 @@ public class Controller {
 
     public Characteristics getCharacteristics(){
         return characteristics;
+    }
+
+    private void aphidFood(){
+        int oneAphid = 3;
+        int aphidsGetFood = oneAphid * aphids;
+        changeFood(aphidsGetFood);
+    }
+
+    private void antEat(){
+        int consuming = 0;
+        for(Ant ant : ants){
+            consuming += ant.getEat();
+        }
+        if(!changeFood(-consuming)){
+            starvation++;
+            if(starvation == 6){
+                frame.gameOver();
+            }
+            frame.warningStarvation(starvation);
+        } else starvation = 0;
+    }
+
+    public void upMaxFoods(int upFoods){
+        maxFoods+=upFoods;
     }
 }

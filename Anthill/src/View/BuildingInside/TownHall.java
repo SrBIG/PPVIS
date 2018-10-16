@@ -43,18 +43,17 @@ public class TownHall extends JDialog {
         setVisible(true);
     }
 
-    private void viewRaidWithStatus(){
+    private void viewRaidWithStatus() {
         viewRaid.removeAll();
         viewRaid.setPreferredSize(new Dimension(300, 100));
 
-        if(controller.getRaid() == null || controller.getRaid().getStatus() == 0){  // 0 - рейда не существует
+        if (controller.getRaid() == null || controller.getRaid().getStatus() == 0) {  // 0 - рейда не существует
             viewRaid.add(new JLabel("Введите кол-во муравьёв для рейда:"));
             antsForRaid.setPreferredSize(new Dimension(300, 20));
             viewRaid.add(antsForRaid);
             sendToRaid.addActionListener(new RaidListener());
             viewRaid.add(sendToRaid);
-            return;
-        } else if (controller.getRaid().getStatus() == 1){  // 1 - рейд идёт
+        } else if (controller.getRaid().getStatus() == 1) {  // 1 - рейд идёт
             viewRaid.setLayout(new BoxLayout(viewRaid, BoxLayout.Y_AXIS));
             viewRaid.add(new JLabel("Рэйд уже идет!"));
             viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
@@ -63,26 +62,23 @@ public class TownHall extends JDialog {
             viewRaid.add(new JLabel("Тли найдено: " + controller.getRaid().getFoundAphids()));
             comeback.addActionListener(new ComebackListener());
             viewRaid.add(comeback);
-            return;
-        } else if (controller.getRaid().getStatus() == 2){  // 2 - все мертвы
+        } else if (controller.getRaid().getStatus() == 2) {  // 2 - все мертвы
             viewRaid.add(new JLabel("Все мертвы...!"));
             viewRaid.add(new JLabel("Время рейда: " + controller.getRaid().getTime() + "c"));
             endIfDead.addActionListener(new AllDeadListener());
             viewRaid.add(endIfDead);
-            return;
-        } else if (controller.getRaid().getStatus() == 3){  // 3 - рейд возвращается
+        } else if (controller.getRaid().getStatus() == 3) {  // 3 - рейд возвращается
+            viewRaid.setLayout(new FlowLayout());
             viewRaid.add(new JLabel("Рэйд возвращается!"));
             viewRaid.add(new JLabel("Время до возвращения: " + controller.getRaid().getTime() + "c"));
-            return;
-        } else if (controller.getRaid().getStatus() == 4){  // 4 - рейд вернулся
+        } else if (controller.getRaid().getStatus() == 4) {  // 4 - рейд вернулся
             viewRaid.add(new JLabel("Рейд вернулся"));
             collectLoot.addActionListener(new CollectListener());
             viewRaid.add(collectLoot);
-            return;
         }
     }
 
-    private void update(){
+    private void update() {
         viewNumAnts.setText("Муравьёв: " + controller.getNumAnts());
     }
 
@@ -92,7 +88,7 @@ public class TownHall extends JDialog {
         public void actionPerformed(ActionEvent actionEvent) {
             int numAntsForRaid = Integer.parseInt(antsForRaid.getText());
 
-            if(numAntsForRaid < 1) return;
+            if (numAntsForRaid < 1) return;
 
             if (controller.getNumAnts() < numAntsForRaid) {
                 JOptionPane.showMessageDialog(null, "У вас недостаточно юнитов!");
@@ -106,22 +102,24 @@ public class TownHall extends JDialog {
         }
     }
 
-    class ComebackListener implements ActionListener{
+    class ComebackListener implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            if(controller.getRaid().getStatus() == 2) {
+            if (controller.getRaid().getStatus() == 2) {
                 JOptionPane.showMessageDialog(null, "Рэйд мёртв...");
                 setVisible(false);
             }
-            controller.getRaid().end();
+            controller.raidEnd();
             controller.comebackRaid();
             viewRaidWithStatus();
             update();
+            JOptionPane.showMessageDialog(null, "Возвращение начато. Вернитесь позже.");
+            setVisible(false);
         }
     }
 
-    class AllDeadListener implements ActionListener{
+    class AllDeadListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             controller.allDeadInRaid();
@@ -129,16 +127,16 @@ public class TownHall extends JDialog {
         }
     }
 
-    class CollectListener implements ActionListener{
+    class CollectListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            controller.collectResurs();
+            controller.collectResource();
             viewRaidWithStatus();
             update();
         }
     }
 
-    class ExitListener implements ActionListener{
+    class ExitListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
             setVisible(false);
